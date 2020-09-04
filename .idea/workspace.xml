@@ -4,13 +4,40 @@
     <option name="AUTOSCROLL_TO_SOURCE" value="true" />
     <option name="FILTER_RESOLVED_ITEMS" value="false" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="10bcccd2-8524-4a1c-bad7-d9bb2ea6188a" name="Default Changelist" comment="">
+    <list default="true" id="10bcccd2-8524-4a1c-bad7-d9bb2ea6188a" name="Default Changelist" comment="User commit">
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PandaTasker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PandaTasker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +58,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
@@ -135,6 +162,9 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gtgasBFIDj47HMX5OG4fnDS1IE" />
@@ -148,21 +178,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.UserController.php">
-    <configuration name="UserController.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/PandaTasker/Controller/UserController.php" useBuiltInWebServerPort="true">
-      <method v="2" />
+  <component name="RunManager">
+    <configuration name="Symfony PandaTasker" type="PhpLocalRunConfigurationType" factoryName="PHP Console" activateToolWindowBeforeRun="false" path="$PROJECT_DIR$" scriptParameters="symfony server:start --no-tls">
+      <method v="2">
+        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_Symfony_server:start" />
+      </method>
     </configuration>
-    <configuration name="Symfony PandaTasker" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/bin/console" scriptParameters="server:run">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.UserController.php" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -174,46 +198,104 @@
       <updated>1598939368891</updated>
       <workItem from="1598939370306" duration="2140000" />
       <workItem from="1598941585360" duration="648000" />
-      <workItem from="1599125276394" duration="985000" />
+      <workItem from="1599125276394" duration="1084000" />
+      <workItem from="1599135522295" duration="210000" />
+      <workItem from="1599232425259" duration="2263000" />
+      <workItem from="1599234756407" duration="4206000" />
     </task>
+    <task id="LOCAL-00001" summary="User commit">
+      <created>1599126323532</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599126323533</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="User commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="User commit" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="547" y="278" key="#CLI_Interpreters" timestamp="1599236412780">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="547" y="278" key="#CLI_Interpreters/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236412780" />
     <state x="594" y="225" key="#Inspections" timestamp="1599126151859">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="594" y="225" key="#Inspections/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126151859" />
-    <state x="424" y="202" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598940434119">
+    <state x="663" y="99" key="#PHP" timestamp="1599236181200">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="424" y="202" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1598940434119" />
+    <state x="663" y="99" key="#PHP/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236181200" />
+    <state x="663" y="99" key="#PHP/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1599234436590" />
+    <state x="424" y="0" width="1071" height="1080" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599236653420">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="424" y="0" width="1071" height="1080" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236653420" />
+    <state x="424" y="138" width="1071" height="942" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1599234401843" />
+    <state x="651" y="339" width="452" height="485" key="#com.intellij.tools.ToolEditorDialog" timestamp="1599235302120">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="651" y="339" width="452" height="485" key="#com.intellij.tools.ToolEditorDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599235302120" />
+    <state x="698" y="302" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599240564326">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="698" y="302" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599240564326" />
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599126124789">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126124789" />
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1598940767542" />
-    <state width="1878" height="300" key="GridCell.Tab.0.bottom" timestamp="1599126125004">
+    <state width="1878" height="297" key="GridCell.Tab.0.bottom" timestamp="1599236686202">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.bottom/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126125004" />
-    <state width="1878" height="300" key="GridCell.Tab.0.center" timestamp="1599126125002">
+    <state width="1878" height="297" key="GridCell.Tab.0.bottom/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686202" />
+    <state width="1878" height="297" key="GridCell.Tab.0.center" timestamp="1599236686200">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.center/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126125002" />
-    <state width="1878" height="300" key="GridCell.Tab.0.left" timestamp="1599126125000">
+    <state width="1878" height="297" key="GridCell.Tab.0.center/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686200" />
+    <state width="1878" height="297" key="GridCell.Tab.0.left" timestamp="1599236686199">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.left/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126125000" />
-    <state width="1878" height="300" key="GridCell.Tab.0.right" timestamp="1599126125003">
+    <state width="1878" height="297" key="GridCell.Tab.0.left/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686199" />
+    <state width="1878" height="297" key="GridCell.Tab.0.right" timestamp="1599236686201">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="300" key="GridCell.Tab.0.right/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126125003" />
-    <state x="790" y="220" key="SettingsEditor" timestamp="1598941991728">
+    <state width="1878" height="297" key="GridCell.Tab.0.right/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686201" />
+    <state x="694" y="257" key="NewPhpClassDialog" timestamp="1599239505012">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="790" y="220" key="SettingsEditor/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1598941991728" />
+    <state x="694" y="257" key="NewPhpClassDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599239505012" />
+    <state x="783" y="466" key="NewPhpFileDialog" timestamp="1599240499307">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="783" y="466" key="NewPhpFileDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599240499307" />
+    <state x="386" y="137" key="SettingsEditor" timestamp="1599236425310">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="386" y="137" key="SettingsEditor/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236425310" />
+    <state x="386" y="137" key="SettingsEditor/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1599234725733" />
+    <state x="862" y="238" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1599236160681">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="862" y="238" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236160681" />
   </component>
 </project>

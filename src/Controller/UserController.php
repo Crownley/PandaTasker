@@ -11,9 +11,20 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class UserController extends AbstractController
 {
+
+
+    /**
+     * @Route("/", name="api_home")
+     */
+    public function home()
+    {
+        return $this->json(['result' => true]);
+    }
+
     /**
      * @Route("/register", name="api_register", methods={"POST"})
      * @param EntityManagerInterface $manager
@@ -66,6 +77,8 @@ class UserController extends AbstractController
         ], 400);
     }
 
+
+
     /**
      * @Route("/login", name="api_login", methods={"POST"})
      */
@@ -73,4 +86,22 @@ class UserController extends AbstractController
     {
         return $this->json(['result' => true]);
     }
+
+    /**
+     * @Route("/profile", name="api_profile")
+     * @IsGranted("ROLE_USER")
+     */
+    public function profile()
+    {
+        return $this->json([
+            'user' => $this->getUser()
+        ],
+            200,
+            [],
+            [
+                'groups' => ['api']
+            ]
+        );
+    }
+
 }
