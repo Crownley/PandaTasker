@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TaskRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Task
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PersonalTask::class, mappedBy="task", orphanRemoval=true)
+     */
+    private $personalTasks;
+
+    public function __construct()
+    {
+        $this->personalTasks = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,5 +147,36 @@ class Task
             'hard' => $this->getHard(),
             'description' => $this->getDescription()
         ];
+    }
+
+    /**
+     * @return Collection|PersonalTask[]
+     */
+    public function getPersonalTasks(): Collection
+    {
+        return $this->personalTasks;
+    }
+
+    public function addPersonalTask(PersonalTask $personalTask): self
+    {
+        if (!$this->personalTasks->contains($personalTask)) {
+            $this->personalTasks[] = $personalTask;
+            $personalTask->setTask($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonalTask(PersonalTask $personalTask): self
+    {
+        if ($this->personalTasks->contains($personalTask)) {
+            $this->personalTasks->removeElement($personalTask);
+            // set the owning side to null (unless already changed)
+            if ($personalTask->getTask() === $this) {
+                $personalTask->setTask(null);
+            }
+        }
+
+        return $this;
     }
 }

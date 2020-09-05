@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,37 +15,41 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TaskRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $manager;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
         parent::__construct($registry, Task::class);
+        $this->manager = $manager;
     }
 
-    // /**
-    //  * @return Task[] Returns an array of Task objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function saveTask($name, $positive, $easy, $medium, $hard, $description)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $newTask = new Task();
 
-    /*
-    public function findOneBySomeField($value): ?Task
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $newTask
+            ->setName($name)
+            ->setPositive($positive)
+            ->setEasy($easy)
+            ->setMedium($medium)
+            ->setHard($hard)
+            ->setDescription($description);
+
+        $this->manager->persist($newTask);
+        $this->manager->flush();
     }
-    */
+
+    public function updateTask(Task $task): Task
+    {
+        $this->manager->persist($task);
+        $this->manager->flush();
+
+        return $task;
+    }
+
+    public function removeTask(Task $task)
+    {
+        $this->manager->remove($task);
+        $this->manager->flush();
+    }
 }

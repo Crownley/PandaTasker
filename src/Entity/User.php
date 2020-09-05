@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -48,6 +50,16 @@ class User implements UserInterface
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $verified;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PersonalTask::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $personalTasks;
+
+    public function __construct()
+    {
+        $this->personalTasks = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -142,6 +154,37 @@ class User implements UserInterface
     public function setVerified(?bool $verified): self
     {
         $this->verified = $verified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PersonalTask[]
+     */
+    public function getPersonalTasks(): Collection
+    {
+        return $this->personalTasks;
+    }
+
+    public function addPersonalTask(PersonalTask $personalTask): self
+    {
+        if (!$this->personalTasks->contains($personalTask)) {
+            $this->personalTasks[] = $personalTask;
+            $personalTask->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersonalTask(PersonalTask $personalTask): self
+    {
+        if ($this->personalTasks->contains($personalTask)) {
+            $this->personalTasks->removeElement($personalTask);
+            // set the owning side to null (unless already changed)
+            if ($personalTask->getUser() === $this) {
+                $personalTask->setUser(null);
+            }
+        }
 
         return $this;
     }
