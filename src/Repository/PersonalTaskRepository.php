@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\PersonalTask;
+use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,37 +16,27 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class PersonalTaskRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $manager;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
-        parent::__construct($registry, PersonalTask::class);
+        parent::__construct($registry, Task::class);
+        $this->manager = $manager;
     }
 
-    // /**
-    //  * @return PersonalTask[] Returns an array of PersonalTask objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function savePersonalTask($name, $userName, $difficulty, $value, $taskId)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $newPersonalTask = new PersonalTask();
 
-    /*
-    public function findOneBySomeField($value): ?PersonalTask
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $newPersonalTask
+            ->setName($name)
+            ->setValue($value)
+            ->setDifficulty($difficulty)
+            ->setUser($userName)
+            ->setTask($taskId);
+
+        $this->manager->persist($newPersonalTask);
+        $this->manager->flush();
     }
-    */
+
 }

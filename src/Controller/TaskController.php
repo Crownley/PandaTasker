@@ -70,10 +70,10 @@ class TaskController extends AbstractController
      */
     public function getAll(): JsonResponse
     {
-        $customers = $this->taskRepository->findAll();
+        $tasks = $this->taskRepository->findAll();
         $data = [];
 
-        foreach ($customers as $task) {
+        foreach ($tasks as $task) {
             $data[] = [
                 'name' => $task->getName(),
                 'positive' => $task->getPositive(),
