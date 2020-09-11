@@ -109,4 +109,13 @@ class PersonalTask
         return $this;
     }
 
+    public function toArray()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'value' => $this->getValue(),
+            'difficulty' => $this->getDifficulty()
+        ];
+    }
 }

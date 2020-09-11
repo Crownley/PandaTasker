@@ -20,11 +20,11 @@ class PersonalTaskRepository extends ServiceEntityRepository
 
     public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
-        parent::__construct($registry, Task::class);
+        parent::__construct($registry, PersonalTask::class);
         $this->manager = $manager;
     }
 
-    public function savePersonalTask($name, $userName, $difficulty, $value, $taskId)
+    public function savePersonalTask($name, $user, $difficulty, $value, $taskId)
     {
         $newPersonalTask = new PersonalTask();
 
@@ -32,10 +32,23 @@ class PersonalTaskRepository extends ServiceEntityRepository
             ->setName($name)
             ->setValue($value)
             ->setDifficulty($difficulty)
-            ->setUser($userName)
+            ->setUser($user)
             ->setTask($taskId);
 
         $this->manager->persist($newPersonalTask);
+        $this->manager->flush();
+    }
+
+    public function updatePersonalTask(PersonalTask $personalTask): PersonalTask
+    {
+        $this->manager->persist($personalTask);
+        $this->manager->flush();
+
+        return $personalTask;
+    }
+    public function removePersonalTask(PersonalTask $personalTask)
+    {
+        $this->manager->remove($personalTask);
         $this->manager->flush();
     }
 

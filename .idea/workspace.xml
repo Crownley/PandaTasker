@@ -24,8 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bcccd2-8524-4a1c-bad7-d9bb2ea6188a" name="Default Changelist" comment="User commit">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PersonalTaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonalTaskController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/PersonalTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PersonalTask.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PersonalTaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PersonalTaskRepository.php" afterDir="false" />
@@ -195,6 +195,9 @@
       <workItem from="1599234756407" duration="8170000" />
       <workItem from="1599291338208" duration="237000" />
       <workItem from="1599305432220" duration="4504000" />
+      <workItem from="1599310382003" duration="57000" />
+      <workItem from="1599669288663" duration="3403000" />
+      <workItem from="1599805412033" duration="5171000" />
     </task>
     <task id="LOCAL-00001" summary="User commit">
       <created>1599126323532</created>
@@ -217,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599241027144</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added post personal task option">
+      <created>1599310431699</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599310431699</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +248,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User commit" />
     <MESSAGE value="Finished basic user &amp; added Tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished basic user &amp; added Tasks" />
+    <MESSAGE value="Added post personal task option" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added post personal task option" />
   </component>
   <component name="WindowStateProjectService">
     <state x="547" y="278" key="#CLI_Interpreters" timestamp="1599236412780">
@@ -272,22 +283,26 @@
     </state>
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126124789" />
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1598940767542" />
-    <state width="1878" height="150" key="GridCell.Tab.0.bottom" timestamp="1599310365471">
+    <state width="1878" height="150" key="GridCell.Tab.0.bottom" timestamp="1599812571424">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="150" key="GridCell.Tab.0.bottom/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599310365471" />
-    <state width="1878" height="150" key="GridCell.Tab.0.center" timestamp="1599310365469">
+    <state width="1878" height="150" key="GridCell.Tab.0.bottom/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599812571424" />
+    <state width="1878" height="150" key="GridCell.Tab.0.bottom/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068357" />
+    <state width="1878" height="150" key="GridCell.Tab.0.center" timestamp="1599812571422">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="150" key="GridCell.Tab.0.center/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599310365469" />
-    <state width="1878" height="150" key="GridCell.Tab.0.left" timestamp="1599310365468">
+    <state width="1878" height="150" key="GridCell.Tab.0.center/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599812571422" />
+    <state width="1878" height="150" key="GridCell.Tab.0.center/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068355" />
+    <state width="1878" height="150" key="GridCell.Tab.0.left" timestamp="1599812571421">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="150" key="GridCell.Tab.0.left/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599310365468" />
-    <state width="1878" height="150" key="GridCell.Tab.0.right" timestamp="1599310365470">
+    <state width="1878" height="150" key="GridCell.Tab.0.left/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599812571421" />
+    <state width="1878" height="150" key="GridCell.Tab.0.left/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068355" />
+    <state width="1878" height="150" key="GridCell.Tab.0.right" timestamp="1599812571423">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="150" key="GridCell.Tab.0.right/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599310365470" />
+    <state width="1878" height="150" key="GridCell.Tab.0.right/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599812571423" />
+    <state width="1878" height="150" key="GridCell.Tab.0.right/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068356" />
     <state x="694" y="257" key="NewPhpClassDialog" timestamp="1599239505012">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
