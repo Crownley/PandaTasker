@@ -24,7 +24,7 @@ class PersonalTaskRepository extends ServiceEntityRepository
         $this->manager = $manager;
     }
 
-    public function savePersonalTask($name, $user, $difficulty, $value, $taskId)
+    public function savePersonalTask($name, $user, $difficulty, $value, $taskId, $positive)
     {
         $newPersonalTask = new PersonalTask();
 
@@ -33,6 +33,7 @@ class PersonalTaskRepository extends ServiceEntityRepository
             ->setValue($value)
             ->setDifficulty($difficulty)
             ->setUser($user)
+            ->setPositive($positive)
             ->setTask($taskId);
 
         $this->manager->persist($newPersonalTask);

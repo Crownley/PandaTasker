@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class PersonalTaskController extends AbstractController
 {
@@ -25,12 +26,12 @@ class PersonalTaskController extends AbstractController
         $this->taskRepository = $taskRepository;
         $this->userRepository = $userRepository;
     }
-
+//     * @Security("$this->userRepository->findOneBy(['username' => $u])->getId() == $this->getUser()")
     /**
      * @Route("/{u}/tasks", name="add_personal_task", methods={"POST"})
      * @IsGranted("ROLE_USER")
      */
-    public function add(Request $request): JsonResponse
+    public function add(Request $request, $u): JsonResponse
     {
 
         $data = json_decode($request->getContent(), true);
@@ -44,6 +45,7 @@ class PersonalTaskController extends AbstractController
 
         $task = $this->taskRepository->findOneBy(['id' => $taskId]);
         $name = $task->getName();
+        $positive = $task->getPositive();
 
         if ($difficulty == "easy") {
             $value = $task->getEasy();
@@ -55,9 +57,14 @@ class PersonalTaskController extends AbstractController
 
         $user = $this->getUser();
 
-        $this->personalTaskRepository->savePersonalTask($name, $user, $difficulty, $value, $task);
+        $this->personalTaskRepository->savePersonalTask($name, $user, $difficulty, $value, $task, $positive);
+        if($u == $this->getUser()->getUsername()) {
+            return new JsonResponse(['status' => 'Personal Task created!'], Response::HTTP_CREATED);
+        } else {
+            throw new NotFoundHttpException('You are not the owner!');
+        }
 
-        return new JsonResponse(['status' => 'Personal Task created!'], Response::HTTP_CREATED);
+
     }
 
     /**
@@ -76,7 +83,7 @@ class PersonalTaskController extends AbstractController
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
-
+// Catch errors
     /**
      * @Route("/{u}/tasks", name="get_all_personal_tasks", methods={"GET"})
      * @IsGranted("ROLE_USER")
@@ -84,7 +91,6 @@ class PersonalTaskController extends AbstractController
     public function getAll($u): JsonResponse
     {
         $author = $this->userRepository->findOneBy(['username' => $u])->getId();
-
         $personalTasks = $this->personalTaskRepository->findBy(['user' => $author]);
         $data = [];
 
@@ -106,7 +112,7 @@ class PersonalTaskController extends AbstractController
      * @Route("/{u}/tasks/{id}", name="update_personal_task", methods={"PUT"})
      * @IsGranted("ROLE_USER")
      */
-    public function update($id, Request $request): JsonResponse
+    public function update($id, $u,  Request $request): JsonResponse
     {
         $personalTask = $this->personalTaskRepository->findOneBy(['id' => $id]);
 
@@ -126,21 +132,28 @@ class PersonalTaskController extends AbstractController
 
         $personalTask->setValue($value);
         $updatedPersonalTask = $this->personalTaskRepository->updatePersonalTask($personalTask);
+        if($u == $this->getUser()->getUsername()){
+            return new JsonResponse($updatedPersonalTask->toArray(), Response::HTTP_OK);
+        } else {
+            throw new NotFoundHttpException('You are not the owner!');
+        }
 
-        return new JsonResponse($updatedPersonalTask->toArray(), Response::HTTP_OK);
     }
 
     /**
      * @Route("/{u}/tasks/{id}", name="delete_personal_task", methods={"DELETE"})
      * @IsGranted("ROLE_USER")
      */
-    public function delete($id): JsonResponse
+    public function delete($id, $u): JsonResponse
     {
         $personalTask = $this->personalTaskRepository->findOneBy(['id' => $id]);
 
         $this->personalTaskRepository->removePersonalTask($personalTask);
-
+        if($u == $this->getUser()->getUsername()){
         return new JsonResponse(['status' => 'Your task has been deleted'], Response::HTTP_NO_CONTENT);
+        } else {
+            throw new NotFoundHttpException('You are not the owner!');
+        }
     }
 
 }
