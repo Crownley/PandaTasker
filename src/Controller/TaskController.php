@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class TaskController extends AbstractController
 {
@@ -20,6 +21,7 @@ class TaskController extends AbstractController
     }
     /**
      * @Route("/tasks", name="add_task", methods={"POST"})
+     * @IsGranted("ROLE_USER")
      * @param Request $request
      * @return JsonResponse
      */
@@ -45,6 +47,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/{id}", name="get_one_task", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      * @param $id
      * @return JsonResponse
      */
@@ -67,13 +70,14 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks", name="get_all_tasks", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      */
     public function getAll(): JsonResponse
     {
-        $customers = $this->taskRepository->findAll();
+        $tasks = $this->taskRepository->findAll();
         $data = [];
 
-        foreach ($customers as $task) {
+        foreach ($tasks as $task) {
             $data[] = [
                 'name' => $task->getName(),
                 'positive' => $task->getPositive(),
@@ -89,6 +93,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/{id}", name="update_task", methods={"PUT"})
+     * @IsGranted("ROLE_ADMIN")
      * @param $id
      * @param Request $request
      * @return JsonResponse
@@ -113,6 +118,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/{id}", name="delete_task", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      * @param $id
      * @return JsonResponse
      */

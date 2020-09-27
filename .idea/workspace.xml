@@ -24,10 +24,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bcccd2-8524-4a1c-bad7-d9bb2ea6188a" name="Default Changelist" comment="User commit">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TaskRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PersonalTaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonalTaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/PersonalTask.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PersonalTask.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PersonalTaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PersonalTaskRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +195,15 @@
       <workItem from="1599232425259" duration="2263000" />
       <workItem from="1599234756407" duration="8170000" />
       <workItem from="1599291338208" duration="237000" />
+      <workItem from="1599305432220" duration="4504000" />
+      <workItem from="1599310382003" duration="57000" />
+      <workItem from="1599669288663" duration="3403000" />
+      <workItem from="1599805412033" duration="5171000" />
+      <workItem from="1599837456398" duration="1185000" />
+      <workItem from="1599842950094" duration="3706000" />
+      <workItem from="1600250995949" duration="1849000" />
+      <workItem from="1601201817494" duration="48000" />
+      <workItem from="1601202016606" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="User commit">
       <created>1599126323532</created>
@@ -215,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599241027144</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added post personal task option">
+      <created>1599310431699</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1599310431699</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Creating IsGranted on Task and PersonalTask">
+      <created>1599837541418</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1599837541418</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +261,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User commit" />
     <MESSAGE value="Finished basic user &amp; added Tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished basic user &amp; added Tasks" />
+    <MESSAGE value="Added post personal task option" />
+    <MESSAGE value="Creating IsGranted on Task and PersonalTask" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating IsGranted on Task and PersonalTask" />
   </component>
   <component name="WindowStateProjectService">
     <state x="547" y="278" key="#CLI_Interpreters" timestamp="1599236412780">
@@ -261,31 +288,39 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="651" y="339" width="452" height="485" key="#com.intellij.tools.ToolEditorDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599235302120" />
-    <state x="698" y="302" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599240564326">
+    <state x="698" y="302" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599308178618">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="698" y="302" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599240564326" />
+    <state x="698" y="302" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599308178618" />
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599126124789">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599126124789" />
     <state x="711" y="391" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1598940767542" />
-    <state width="1878" height="297" key="GridCell.Tab.0.bottom" timestamp="1599236686202">
+    <state width="1878" height="110" key="GridCell.Tab.0.bottom" timestamp="1600267335411">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="297" key="GridCell.Tab.0.bottom/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686202" />
-    <state width="1878" height="297" key="GridCell.Tab.0.center" timestamp="1599236686200">
+    <state width="1878" height="141" key="GridCell.Tab.0.bottom/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599847086501" />
+    <state width="1878" height="110" key="GridCell.Tab.0.bottom/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1600267335411" />
+    <state width="1878" height="150" key="GridCell.Tab.0.bottom/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068357" />
+    <state width="1878" height="110" key="GridCell.Tab.0.center" timestamp="1600267335409">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="297" key="GridCell.Tab.0.center/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686200" />
-    <state width="1878" height="297" key="GridCell.Tab.0.left" timestamp="1599236686199">
+    <state width="1878" height="141" key="GridCell.Tab.0.center/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599847086489" />
+    <state width="1878" height="110" key="GridCell.Tab.0.center/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1600267335409" />
+    <state width="1878" height="150" key="GridCell.Tab.0.center/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068355" />
+    <state width="1878" height="110" key="GridCell.Tab.0.left" timestamp="1600267335408">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="297" key="GridCell.Tab.0.left/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686199" />
-    <state width="1878" height="297" key="GridCell.Tab.0.right" timestamp="1599236686201">
+    <state width="1878" height="141" key="GridCell.Tab.0.left/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599847086489" />
+    <state width="1878" height="110" key="GridCell.Tab.0.left/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1600267335408" />
+    <state width="1878" height="150" key="GridCell.Tab.0.left/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068355" />
+    <state width="1878" height="110" key="GridCell.Tab.0.right" timestamp="1600267335410">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="297" key="GridCell.Tab.0.right/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599236686201" />
+    <state width="1878" height="141" key="GridCell.Tab.0.right/-1440.316.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1599847086500" />
+    <state width="1878" height="110" key="GridCell.Tab.0.right/-1440.339.1440.877/0.0.1920.1080@0.0.1920.1080" timestamp="1600267335410" />
+    <state width="1878" height="150" key="GridCell.Tab.0.right/-1440.339.1440.877/0.23.1920.980@0.23.1920.980" timestamp="1599676068356" />
     <state x="694" y="257" key="NewPhpClassDialog" timestamp="1599239505012">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

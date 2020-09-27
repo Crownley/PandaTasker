@@ -44,6 +44,16 @@ class PersonalTask
      */
     private $task;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $Sum;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $positive;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +115,40 @@ class PersonalTask
     public function setTask(?Task $task): self
     {
         $this->task = $task;
+
+        return $this;
+    }
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'value' => $this->getValue(),
+            'difficulty' => $this->getDifficulty()
+        ];
+    }
+
+    public function getSum(): ?int
+    {
+        return $this->Sum;
+    }
+
+    public function setSum(?int $Sum): self
+    {
+        $this->Sum = $Sum;
+
+        return $this;
+    }
+
+    public function getPositive(): ?bool
+    {
+        return $this->positive;
+    }
+
+    public function setPositive(bool $positive): self
+    {
+        $this->positive = $positive;
 
         return $this;
     }
